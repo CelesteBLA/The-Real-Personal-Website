@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f3f9f1;
+            min-height: 100vh;
+        }
+
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            transition: all 0.2s;
+            color: #4c596e;
+            text-decoration: none;
+        }
+
+        .nav-link:hover {
+            background-color: #f5b31f;
+            color: white;
+        }
+
+        .nav-link.active {
+            background-color: #f99fad;
+            color: white;
+        }
+
+        .nav-link svg {
+            margin-right: 0.5rem;
+        }
+
+        .section-title {
+            color: #f99fad;
+        }
+
+        .project-card {
+            border-left: 4px solid #f5b31f;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem;
+        }
+
+        .media-item {
+            transition: transform 0.3s ease;
+        }
+
+        .media-item:hover {
+            transform: scale(1.02);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 0.5rem;
+        }
+
+        .testimonial {
+            background-color: #f8f9fa;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .quote-mark {
+            color: #f5b31f;
+            font-size: 2rem;
+            line-height: 1;
+        }
+        .my-image {
+            margin-left: 530px;
+            margin-top: -200px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white shadow-sm p-4 z-10">
+        <div class="max-w-4xl mx-auto flex flex-wrap justify-center gap-2">
+            <a href="index.html" class="nav-link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                Home
+            </a>
+            <a href="aboutme.html" class="nav-link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                About Me
+            </a>
+            <a href="resume.html" class="nav-link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                Resume
+            </a>
+            <a href="project.html" class="nav-link active">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                Projects
+            </a>
+            <a href="game.html" class="nav-link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+                    <path d="M12 12h.01"></path>
+                    <path d="M7 12h.01"></path>
+                    <path d="M17 12h.01"></path>
+                </svg>
+                Game
+            </a>
+            <a href="discovery.html" class="nav-link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="16"></line>
+                    <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>
+                Discovery
+            </a>
+            <a href="contactme.html" class="nav-link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                Contact Me
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto pt-24 px-4 pb-12">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold section-title mb-4">Projects</h1>
+            <p class="text-lg text-gray-600">Exploring Creativity and Innovation</p>
+        </div>
+        <img src="images/1000_F_985528489_vF4XCPPI44nTinSjoJPEChgz2NOZCE7R-removebg-preview.png" width="250" class="my-image">
+        <!-- UMD and Duluth Section -->
+        <section class="bg-white rounded-lg shadow-md p-6 mb-8 project-card">
+            <h2 class="text-2xl font-bold section-title mb-6 flex items-center">
+                <svg width="24" height="24" class="mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                </svg>
+                UMD AND DULUTH
+            </h2>
+
+            <!-- Personal Statement Section -->
+            <div class="testimonial mb-8">
+                <div class="quote-mark">"</div>
+                <p class="text-gray-700 leading-relaxed">
+                    My journey at UMD and life in Duluth has been a rewarding experience so far, the tight-nit campus combined with the love and appreciation of nature make it so homely. 
+                </p>
+            </div>
+
+            <!-- Personal Video Section -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">My UMD Experience:</h3>
+                <div class="video-container">
+                    <video controls class="shadow-lg">
+                        <source src="videos/attending umd.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <p class="text-gray-600 text-sm mt-2 italic">Personal reflection on my time at UMD and why I love Duluth</p>
+            </div>
+
+            <!-- Images Section -->
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Images:</h3>
+            <div class="media-grid">
+                <img src="images/Designer (6).jpeg" class="rounded-lg shadow-md media-item" alt="Designer Image 1">
+                <img src="images/Designer (5).jpeg" class="rounded-lg shadow-md media-item" alt="Designer Image 2">
+                <img src="images/Designer (4).jpeg" class="rounded-lg shadow-md media-item" alt="Designer Image 3">
+                <img src="images/Designer (3).jpeg" class="rounded-lg shadow-md media-item" alt="Designer Image 4">
+                <img src="images/umd.jpeg" class="rounded-lg shadow-md media-item" alt="UMD Image">
+            </div>
+
+            <!-- Other Videos Section -->
+            <h3 class="text-xl font-semibold text-gray-800 mt-8 mb-4">Videos:</h3>
+            <div class="space-y-6">
+                <div class="video-container">
+                    <video controls class="shadow-lg">
+                        <source src="videos/invideo-ai-1080 A Dogs Day Out at UMD! 2024-10-27 (1).mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="video-container">
+                    <video controls class="shadow-lg">
+                        <source src="videos/Celeste_Blahoski_a_bird_flying_over_duluth_minnesota_superior_lake_c1e4051d-dd8b-4fce-a853-5c94b51f964b.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Development Section -->
+        <section class="bg-white rounded-lg shadow-md p-6 mb-8 project-card">
+            <h2 class="text-2xl font-bold section-title mb-6 flex items-center">
+                <svg width="24" height="24" class="mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                </svg>
+                PROJECT DEVELOPMENT
+            </h2>
+            
+            <div class="space-y-7">
+                <div class="testimonial">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">My Journey Creating This Website</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Building this website has been both challenging and engaging. I knew it would take a lot of time, and at first, I struggled to find the motivation. But as I kept working on it, I started finding ways to make it more fun for myself. I enjoyed making it look neat and cutesy, and I had a great time incorporating things I love, like cats and gaming.
+
+<p></p>I want to say the hardest part of the project was building the game. It took up so much of my time just to get it to work the way I wanted. Even now, I’ll admit it has its flaws, but I’m happy it actually works, despite the issues. Although honestly, the most frustrating part for me was filling in all the little details. Just when I thought I was done, I’d realize there was something else I’d forgotten to do!
+
+<p></p>Still, despite all the little challenges, I’m really glad I got the chance to create this website. It was a tough but enjoyable experience, and I’ve learned a lot from it. Plus, now I can actually put it on my resume, which is pretty awesome!
+                    </p>
+                    <div class="space-y-5">
+                        <div>
+                            <h4 class="font-semibold text-gray-800"></h4>
+                            
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Problems I Overcame</h4>
+                            <ul class="list-disc list-inside text-gray-700 ml-4">
+                                <li>Keeping the visual style neat</li>
+                                <li>Building a working game</l>
+                                <li>Creating a downloadable button</li>
+                                <li>Understanding HTML code</li>
+                                <li>Implementing music and other</li>
+                                <li>Incoperating AI and media</li>
+                                <li>Writing and understanding discovery topic</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other AI Section -->
+        <section class="bg-white rounded-lg shadow-md p-6 project-card">
+            <h2 class="text-2xl font-bold section-title mb-6 flex items-center">
+                <svg width="24" height="24" class="mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"></path>
+                    <path d="M12 6v6l4 2"></path>
+                </svg>
+                OTHER AI
+            </h2>
+
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Images:</h3>
+            <div class="media-grid">
+                <img src="images/nintedo.jpg" alt="">
+                <img src="images/output (1).jpg" >
+                <img src="images/output.jpg" alt="">
+                <img src="images/pacman.jpg" alt="">
+                <img src="images/console.jpg" alt="">
+                <img src="images/future console.jpg" alt="">
+            </div>
+
+            <h3 class="text-xl font-semibold text-gray-800 mt-8 mb-4">Videos:</h3>
+            <div class="media-grid">
+                <div class="video-container">
+                    <video controls class="shadow-lg">
+                        <source src="videos/arcade_pacman_machine_with_pacman_playing_on_the_screen_883dba.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="video-container">
+                    <video controls class="shadow-lg">
+                        <source src="videos/the_robot_wins_06f9cc.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
