@@ -543,16 +543,39 @@ function shootBubble(event) {
 function updateBubbles() {
     for (let i = state.bubbles.length - 1; i >= 0; i--) {
         const bubble = state.bubbles[i];
-        
-        // Update position
+
+        // Update position based on velocity
         bubble.x += bubble.velocityX;
         bubble.y += bubble.velocityY;
-        
-        // Check boundaries
+
+        // Wall collisions
         if (bubble.x <= config.bubbleRadius || bubble.x >= canvas.width - config.bubbleRadius) {
             bubble.velocityX *= -1; // Bounce off walls
         }
+
+        // Check if bubble goes beyond the bottom (game over or placement logic)
+        if (bubble.y >= canvas.height - config.bubbleRadius) {
+            // Place bubble at the bottom in the correct stack/grid position
+            placeBubbleAtBottom(bubble);
+
+            // Optionally, check for adjacent bubbles or game logic
+            checkForAdjacency(bubble);
+
+            // Remove the bubble from the list
+            state.bubbles.splice(i, 1); 
+        }
     }
+}
+
+ 
+function placeBubbleAtBottom(bubble) {
+    // Example: Put the bubble into the bottom-most available position
+    const bottomRow = getBottomRowForColumn(bubble.x);  // Some function to find the column in the grid
+    bubble.x = bottomRow.x;  // Set x position to the correct column
+    bubble.y = canvas.height - config.bubbleRadius;  // Set y position to the bottom of the canvas
+
+    // Add bubble to the grid or array (you may have a grid structure for game logic)
+    grid[bottomRow.x][bottomRow.y] = bubble;
 }
 function gameOver(isWin = false) {
     state.gameOver = true;
